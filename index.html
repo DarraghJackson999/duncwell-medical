@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="HGV, taxi and bus driver medicals in Omagh and Enniskillen. £100 flat fee, eyesight exam included, all paperwork completed on the day. Book on 07707 612 400.">
-<meta name="theme-color" content="#0B1630">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:title" content="Duncwell Medical — Driver Medicals in Omagh & Enniskillen">
 <meta property="og:description" content="HGV, taxi and bus medicals completed in one visit. £100, eyesight exam included, all paperwork done on the day.">
 <meta property="og:type" content="website">
@@ -747,15 +747,16 @@
 </style>
 
 <script>
-  /* Apply saved theme before first paint to avoid a flash */
+  /* Apply theme before first paint. The site opens in light mode by default;
+     the toggle saves each visitor's own choice. */
   (function(){
+    var t = 'light';
     try{
-      var t = localStorage.getItem('dw-theme');
-      if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+      var saved = localStorage.getItem('dw-theme');
+      if (saved === 'dark' || saved === 'light') t = saved;
     }catch(e){}
-    var dark = document.documentElement.dataset.theme === 'dark' ||
-      (!document.documentElement.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    document.documentElement.classList.toggle('is-dark', dark);
+    document.documentElement.dataset.theme = t;
+    document.documentElement.classList.toggle('is-dark', t === 'dark');
   })();
 </script>
 
