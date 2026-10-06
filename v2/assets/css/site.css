@@ -191,9 +191,12 @@ address{font-style:normal}
 body.menu-open .burger span:nth-child(1){transform:translateY(4.1px) rotate(45deg)}
 body.menu-open .burger span:nth-child(2){opacity:0}
 body.menu-open .burger span:nth-child(3){transform:translateY(-4.1px) rotate(-45deg)}
+.nav a,.hdr-phone,.hdr-book{white-space:nowrap}
 @media (min-width:900px){
-  .nav{display:flex}
   .hdr-phone,.hdr-book{display:inline-flex}
+}
+@media (min-width:1080px){
+  .nav{display:flex}
   .burger{display:none}
 }
 
