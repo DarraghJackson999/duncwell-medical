@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Duncwell Medical | HGV, Taxi &amp; Bus Medicals in Omagh, Enniskillen &amp; Derry</title>
+<title>Duncwell Medical | D4 &amp; DLM1 Driver Medicals in Omagh, Enniskillen &amp; Derry</title>
 <meta name="description" content="HGV, taxi and bus driver medicals in Omagh, Enniskillen and Derry/Londonderry. D4 and DLM1 forms, £100 flat fee, eyesight exam included, all paperwork completed on the day. Book on 07707 612 400.">
 <link rel="canonical" href="https://duncwellmedical.com/">
 <meta name="theme-color" content="#FFFFFF">
@@ -12,8 +12,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Duncwell Medical">
-<meta property="og:title" content="Duncwell Medical | Driver Medicals in Omagh, Enniskillen &amp; Derry">
-<meta property="og:description" content="HGV, taxi and bus medicals completed in one visit. £100, eyesight exam included, all paperwork done on the day.">
+<meta property="og:title" content="Duncwell Medical | D4 &amp; DLM1 Driver Medicals in Omagh, Enniskillen &amp; Derry">
+<meta property="og:description" content="HGV, taxi and bus medicals in one visit. D4 and DLM1 forms completed and signed on the day. £100, eyesight exam included.">
 <meta property="og:url" content="https://duncwellmedical.com/">
 <meta property="og:image" content="https://duncwellmedical.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -286,7 +286,8 @@
   .loaded .hline:nth-child(2) > span{animation-delay:.12s}
   .loaded .hline:nth-child(3) > span{animation-delay:.24s}
   @keyframes lineUp{to{transform:none}}
-  .hero-sub,.hero-ctas,.hero-call,.hero-facts{opacity:0;transform:translateY(16px)}
+  .hero-sub,.forms,.hero-ctas,.hero-call,.hero-facts{opacity:0;transform:translateY(16px)}
+  .loaded .forms{animation:fadeUp .8s .52s cubic-bezier(.2,.65,.25,1) forwards}
   .loaded .hero-sub{animation:fadeUp .8s .45s cubic-bezier(.2,.65,.25,1) forwards}
   .loaded .hero-ctas{animation:fadeUp .8s .58s cubic-bezier(.2,.65,.25,1) forwards}
   .loaded .hero-call{animation:fadeUp .8s .68s cubic-bezier(.2,.65,.25,1) forwards}
@@ -295,14 +296,31 @@
   .loaded .hero-media{animation:fadeUp 1s .5s cubic-bezier(.2,.65,.25,1) forwards}
   @keyframes fadeUp{to{opacity:1;transform:none}}
   @media (prefers-reduced-motion: reduce){
-    .hline > span,.hero-sub,.hero-ctas,.hero-call,.hero-facts,.hero-media{
+    .hline > span,.hero-sub,.forms,.hero-ctas,.hero-call,.hero-facts,.hero-media{
       transform:none!important;opacity:1!important;animation:none!important;
     }
   }
   .hero-sub{
     font-size:1.13rem;color:var(--ink-soft);
-    max-width:33em;margin-bottom:34px;
+    max-width:33em;margin-bottom:24px;
   }
+  .forms{margin-bottom:30px}
+  .forms-label{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+  }
+  .forms-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:520px}
+  .form-chip{
+    display:flex;align-items:center;gap:12px;min-width:0;
+    padding:12px 14px;border:1px solid var(--line-strong);border-radius:12px;background:var(--bg);
+  }
+  .form-chip .code{
+    flex:none;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:1.15rem;line-height:1.1;
+    color:var(--accent);padding-right:12px;border-right:1px solid var(--line);
+  }
+  .form-chip .what{display:flex;flex-direction:column;min-width:0;line-height:1.3}
+  .form-chip .what b{font-size:.88rem;font-weight:600;color:var(--ink)}
+  .form-chip .what small{font-size:.76rem;color:var(--muted);letter-spacing:.04em}
   .hero-sub strong{color:var(--ink);font-weight:600}
   .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
   .hero-call{color:var(--muted);font-size:.94rem}
@@ -469,30 +487,48 @@
   .process{background:var(--band);color:var(--on-band);border-block:1px solid var(--band-line)}
   .process .eyebrow{color:var(--on-band-muted)}
   .process .sec-head h2{color:var(--on-band)}
+  /* The rail runs only between the number circles (length set in JS); its fill follows the
+     visitor's scroll position, and each circle lights up once the fill reaches it. */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;position:relative}
   .steps .rail{
-    position:absolute;top:23px;left:2%;right:2%;height:2px;
-    background:var(--band-line);transform-origin:left;transform:scaleX(0);
-    transition:transform 1.4s cubic-bezier(.2,.65,.25,1);
+    position:absolute;top:22px;left:23px;width:var(--rail-len,0px);height:2px;
+    background:var(--band-line);border-radius:2px;overflow:hidden;
   }
-  .steps.in .rail{transform:scaleX(1)}
+  .steps .rail-fill{position:absolute;inset:0;background:var(--accent);transform-origin:left;transform:scaleX(var(--p,0))}
   .step{position:relative}
   .step-no{
     position:relative;z-index:1;
     width:46px;height:46px;border-radius:50%;
-    background:var(--band);color:var(--on-band);
-    border:2px solid var(--on-band-muted);
+    background:var(--band);color:var(--on-band-muted);
+    border:2px solid var(--band-line);
     font-family:"Source Serif 4",serif;font-weight:600;font-size:1.05rem;
     display:flex;align-items:center;justify-content:center;
     margin-bottom:18px;
+    transition:background .45s, border-color .45s, color .45s, transform .45s cubic-bezier(.2,.65,.25,1), box-shadow .45s;
   }
-  .step:last-child .step-no{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+  .step.lit .step-no{
+    background:var(--accent);border-color:var(--accent);color:var(--on-accent);
+    transform:scale(1.06);box-shadow:0 0 0 6px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+  .step-no .num{transition:opacity .3s}
+  .step-no .tick{
+    position:absolute;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.6;
+    stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;
+    transition:stroke-dashoffset .55s .2s cubic-bezier(.2,.65,.25,1);
+  }
+  .step.lit .step-no .tick{stroke-dashoffset:0}
+  .step.lit .step-no.final .num{opacity:0}
   .step h4{font-family:"Public Sans",sans-serif;font-size:1.02rem;margin-bottom:8px;color:var(--on-band)}
   .step p{font-size:.92rem;color:var(--on-band-muted)}
+  .step p strong{color:var(--on-band);font-weight:600}
   @media (max-width:860px){
-    .steps{grid-template-columns:1fr;gap:34px}
-    .steps .rail{left:22px;right:auto;top:2%;bottom:2%;width:2px;height:auto;transform:scaleY(0);transform-origin:top}
-    .steps.in .rail{transform:scaleY(1)}
+    .steps{grid-template-columns:1fr;gap:0}
+    .step{display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:18px;padding-bottom:34px}
+    .step:last-child{padding-bottom:0}
+    .step-no{margin-bottom:0}
+    .step-body{padding-top:11px}
+    .steps .rail{left:22px;width:2px;height:var(--rail-len,0px)}
+    .steps .rail-fill{transform-origin:top;transform:scaleY(var(--p,0))}
   }
 
   /* Stats — royal blue band (same in both themes) */
@@ -766,6 +802,59 @@
     .actionbar{display:flex}
     body{padding-bottom:76px}
   }
+
+  @media (max-width:480px){.svc .svc-kicker{letter-spacing:.1em}}
+
+  /* ================= MOTION FOR EVERY DEVICE ================= */
+  /* section labels: the accent line draws in as the heading arrives */
+  .rv .eyebrow::before{transform:scaleX(0);transform-origin:left;transition:transform .9s .2s cubic-bezier(.2,.65,.25,1)}
+  .rv.in .eyebrow::before{transform:scaleX(1)}
+  /* tap ripple (added by script on touch) */
+  .ripple{
+    position:absolute;border-radius:50%;pointer-events:none;z-index:0;
+    width:12px;height:12px;margin:-6px 0 0 -6px;
+    background:currentColor;opacity:.22;transform:scale(0);
+    animation:ripple .6s cubic-bezier(.2,.65,.25,1) forwards;
+  }
+  @keyframes ripple{to{transform:scale(28);opacity:0}}
+  .faq-q,.car-btn,.contact-card{position:relative;overflow:hidden}
+  @keyframes sheen{from{left:-70%}to{left:130%}}
+  @keyframes nudge{0%,70%,100%{transform:translateX(0)}80%{transform:translateX(5px)}90%{transform:translateX(1px)}}
+
+  /* ================= TOUCH SCREENS (no hover) ================= */
+  @media (hover: none){
+    /* press feedback */
+    .btn:active,.form-chip:active,.apoint:active,.contact-card:active,.car-btn:active{transform:scale(.97)}
+    .svc:active,.loc:active{transform:scale(.985)}
+    .theme-toggle:active{transform:rotate(25deg) scale(.94)}
+    .faq-q:active{color:var(--accent)}
+
+    /* "spotlight": the card crossing the middle of the screen gets the hover treatment */
+    .svc.on{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+    .svc.on::before{transform:scaleX(1)}
+    .loc.on{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+    .loc.on .map iframe{filter:none}
+    .apoint.on{border-color:var(--accent);transform:translateY(-2px)}
+    .apoint{transition:border-color .45s, transform .45s}
+    .contact-card.on{border-color:var(--line-strong)}
+    .form-chip{transition:border-color .45s, transform .2s}
+    .form-chip.on{border-color:var(--accent)}
+
+    /* primary buttons sweep a sheen when they first come into view */
+    .btn-primary.shine::after{animation:sheen .9s .15s ease-out 1}
+    /* the main booking button's arrow gives a gentle nudge */
+    .hero-ctas .btn-primary .arr{animation:nudge 3.2s 2.2s ease-in-out infinite}
+
+    /* photos ease from a slight zoom as they scroll into place (scale set by script) */
+    .photo img{transform:scale(var(--zoom,1));transition:transform .12s linear;will-change:transform}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .rv .eyebrow::before{transform:none;transition:none}
+    .ripple{display:none}
+    .btn-primary.shine::after,.hero-ctas .btn-primary .arr{animation:none}
+    .photo img{transform:none!important}
+  }
 </style>
 <script>
   /* Apply theme before first paint. The site opens in light mode by default;
@@ -847,6 +936,13 @@
           experienced local GP. <strong>£100 flat fee</strong>, eyesight examination included, and
           <strong>all paperwork completed on the day</strong> — no separate trips to a doctor or optician.
         </p>
+        <div class="forms" role="group" aria-label="Medical forms we complete">
+          <p class="forms-label">We complete both medical forms</p>
+          <div class="forms-row">
+            <div class="form-chip"><span class="code">D4</span><span class="what"><b>Great Britain licence</b><small>DVLA</small></span></div>
+            <div class="form-chip"><span class="code">DLM1</span><span class="what"><b>Northern Ireland licence</b><small>DVA</small></span></div>
+          </div>
+        </div>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://duncwellmedicals.simplybook.it/" target="_blank" rel="noopener">Book in Omagh <span class="arr">→</span></a>
           <a class="btn btn-outline" href="https://duncwellmedical.simplybook.it/v2/" target="_blank" rel="noopener">Book in Enniskillen</a>
@@ -897,13 +993,13 @@
             </div>
             <div class="price"><span class="amt">£100</span><span class="lbl">Cash / Card</span></div>
           </div>
-          <p class="desc">A comprehensive medical for Class 1 and Class 2 HGV licence holders — thorough,
-          efficient and fully compliant with DVA / DVLA requirements, so you can get back on the road
-          without delay.</p>
+          <p class="desc">A comprehensive Group 2 medical for Class 1 and Class 2 HGV licence holders.
+          We complete the <strong>D4</strong> for Great Britain (DVLA) licences and the
+          <strong>DLM1</strong> for Northern Ireland (DVA) licences.</p>
           <ul>
-            <li>Full D4 / DLM1 examination with an experienced GP</li>
+            <li>Full examination with an experienced GP</li>
             <li>Eyesight examination on site — no separate optician visit</li>
-            <li>All forms supplied and completed during the appointment</li>
+            <li>Your D4 or DLM1 supplied, completed and signed during the appointment</li>
             <li>Medical history obtained beforehand with your consent</li>
           </ul>
           <div class="svc-cta">
@@ -915,7 +1011,7 @@
         <article class="svc rv" style="--d:.12s">
           <div class="svc-top">
             <div>
-              <span class="svc-kicker">Licence compliance</span>
+              <span class="svc-kicker">Taxi · Bus · Coach</span>
               <h3>Taxi &amp; Bus Medical Examination</h3>
             </div>
             <div class="price"><span class="amt">£100</span><span class="lbl">Cash / Card</span></div>
@@ -923,6 +1019,7 @@
           <p class="desc">A detailed, hassle-free medical for taxi and bus drivers meeting licensing
           requirements. Quick, accurate, and completed in a single visit.</p>
           <ul>
+            <li>Bus and coach drivers: your D4 or DLM1 completed on the day</li>
             <li>Eyesight check included in the same appointment</li>
             <li>All paperwork handled for you on the day</li>
             <li>Renewals typically due every 3–5 years, depending on your council</li>
@@ -946,30 +1043,38 @@
         <h2>From booking to paperwork in four steps</h2>
       </div>
       <div class="steps" id="steps">
-        <div class="rail" aria-hidden="true"></div>
-        <div class="step rv">
-          <div class="step-no">1</div>
-          <h4>Book your slot</h4>
-          <p>Book online or call 07707&nbsp;612&nbsp;400. Appointments are available every week, with
-          evening and weekend times to suit working drivers.</p>
+        <div class="rail" aria-hidden="true"><i class="rail-fill"></i></div>
+        <div class="step">
+          <div class="step-no" aria-hidden="true"><span class="num">1</span></div>
+          <div class="step-body">
+            <h4>Book your slot</h4>
+            <p>Book online or call 07707&nbsp;612&nbsp;400. Appointments are available every week, with
+            evening and weekend times to suit working drivers.</p>
+          </div>
         </div>
-        <div class="step rv" style="--d:.1s">
-          <div class="step-no">2</div>
-          <h4>We prepare everything</h4>
-          <p>With your consent we gather your medical history in advance and have every form ready
-          before you arrive — nothing for you to chase.</p>
+        <div class="step">
+          <div class="step-no" aria-hidden="true"><span class="num">2</span></div>
+          <div class="step-body">
+            <h4>We prepare your form</h4>
+            <p>With your consent we gather your medical history in advance and have your
+            <strong>D4 or DLM1</strong> ready before you arrive — nothing for you to chase.</p>
+          </div>
         </div>
-        <div class="step rv" style="--d:.2s">
-          <div class="step-no">3</div>
-          <h4>Your examination</h4>
-          <p>The medical takes around 15–20 minutes at our Omagh, Enniskillen or Derry/Londonderry clinic, including
-          your eyesight examination.</p>
+        <div class="step">
+          <div class="step-no" aria-hidden="true"><span class="num">3</span></div>
+          <div class="step-body">
+            <h4>Your examination</h4>
+            <p>The medical takes around 15–20 minutes at our Omagh, Enniskillen or Derry/Londonderry
+            clinic, including your eyesight examination.</p>
+          </div>
         </div>
-        <div class="step rv" style="--d:.3s">
-          <div class="step-no">4</div>
-          <h4>Leave road-ready</h4>
-          <p>You walk out with completed, signed paperwork ready to send to the DVA / DVLA or your
-          licensing council. Done in one visit.</p>
+        <div class="step">
+          <div class="step-no final" aria-hidden="true"><span class="num">4</span><svg class="tick" viewBox="0 0 20 20"><path d="M4.5 10.5l3.6 3.5 7.4-8"/></svg></div>
+          <div class="step-body">
+            <h4>Leave road-ready</h4>
+            <p>You walk out with your <strong>D4 or DLM1</strong> (or taxi paperwork) completed and
+            signed, ready to send off. Done in one visit.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1092,16 +1197,16 @@
       </div>
       <div class="faq-list rv">
         <div class="faq">
-          <button class="faq-q" aria-expanded="false">What do I need to bring to my HGV medical?<span class="ind" aria-hidden="true"></span></button>
-          <div class="faq-a"><div><p>Just bring your glasses if you wear them for driving. Forms are
-          supplied by the completing physician, and your medical history is obtained with your
-          consent — we handle the rest.</p></div></div>
-        </div>
-        <div class="faq">
           <button class="faq-q" aria-expanded="false">Which form do you complete — D4 or DLM1?<span class="ind" aria-hidden="true"></span></button>
           <div class="faq-a"><div><p>Both. The DLM1 is for licences issued in Northern Ireland by the
           DVA, and the D4 is for licences issued in Great Britain by the DVLA. Just tell us which
           licence you hold when you book.</p></div></div>
+        </div>
+        <div class="faq">
+          <button class="faq-q" aria-expanded="false">What do I need to bring to my HGV medical?<span class="ind" aria-hidden="true"></span></button>
+          <div class="faq-a"><div><p>Just bring your glasses if you wear them for driving. Your D4 or
+          DLM1 is supplied by the examining doctor, and your medical history is obtained with your
+          consent — we handle the rest.</p></div></div>
         </div>
         <div class="faq">
           <button class="faq-q" aria-expanded="false">How much does a medical cost?<span class="ind" aria-hidden="true"></span></button>
@@ -1215,7 +1320,7 @@
           </div>
           <div class="field">
             <label for="f-msg">Message</label>
-            <textarea id="f-msg" name="message" rows="4" placeholder="e.g. HGV renewal, preferred days/times, Omagh, Enniskillen or Derry/Londonderry" required></textarea>
+            <textarea id="f-msg" name="message" rows="4" placeholder="e.g. HGV renewal (D4 or DLM1), preferred days/times, Omagh, Enniskillen or Derry/Londonderry" required></textarea>
           </div>
           <button class="btn btn-primary" type="submit">Send via WhatsApp <span class="arr">→</span></button>
           <p class="form-note">Sending opens WhatsApp with your message ready to go — nothing is stored
@@ -1268,7 +1373,7 @@
   <div class="wrap">
     <div>
       <p class="fbrand">Duncwell Medical Limited</p>
-      <p>Driver medicals in Omagh, Enniskillen &amp; Derry/Londonderry · © 2024–2026</p>
+      <p>D4 &amp; DLM1 driver medicals in Omagh, Enniskillen &amp; Derry/Londonderry · © 2024–2026</p>
     </div>
     <nav aria-label="Footer">
       <a href="#services">Medicals</a>
@@ -1290,7 +1395,7 @@
   "@context":"https://schema.org",
   "@type":"MedicalClinic",
   "name":"Duncwell Medical Limited",
-  "description":"HGV, taxi and bus driver medicals in Omagh, Enniskillen and Derry/Londonderry, Northern Ireland. D4 and DLM1 forms. £100 flat fee, eyesight examination included, all paperwork completed on the day.",
+  "description":"HGV, taxi and bus driver medicals in Omagh, Enniskillen and Derry/Londonderry, Northern Ireland. D4 (DVLA) and DLM1 (DVA) medical forms completed. £100 flat fee, eyesight examination included, all paperwork completed on the day.",
   "telephone":"+447707612400",
   "priceRange":"£100",
   "url":"https://duncwellmedical.com/",
@@ -1367,16 +1472,53 @@
       });
     }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
     document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
-    var steps = document.getElementById('steps');
-    if (steps){
-      var io2 = new IntersectionObserver(function(entries){
-        if (entries[0].isIntersecting){ steps.classList.add('in'); io2.disconnect(); }
-      }, {threshold:.25});
-      io2.observe(steps);
-    }
   } else {
     document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
-    var s = document.getElementById('steps'); if (s) s.classList.add('in');
+  }
+
+  /* ---- how it works: progress line follows the visitor's scroll ---- */
+  var stepsEl = document.getElementById('steps');
+  if (stepsEl){
+    var stepItems = Array.prototype.slice.call(stepsEl.querySelectorAll('.step'));
+    var stepDots = stepItems.map(function(s){ return s.querySelector('.step-no'); });
+    var stepsTicking = false;
+    function stepsUpdate(){
+      stepsTicking = false;
+      var first = stepDots[0].getBoundingClientRect();
+      var last = stepDots[stepDots.length - 1].getBoundingClientRect();
+      if (!first.height) return;
+      var vertical = Math.abs(last.top - first.top) > Math.abs(last.left - first.left);
+      var len = vertical ? (last.top - first.top) : (last.left - first.left);
+      stepsEl.style.setProperty('--rail-len', Math.max(0, len) + 'px');
+      var vh = window.innerHeight;
+      var line = vh * (vertical ? 0.6 : 0.7);          // the reading line the fill keeps pace with
+      var startY = first.top + first.height / 2;
+      var p = vertical ? (line - startY) / (len || 1) : (line - startY) / (vh * 0.3);
+      p = Math.max(0, Math.min(1, p));
+      stepsEl.style.setProperty('--p', p.toFixed(4));
+      var n = stepItems.length;
+      stepItems.forEach(function(s, i){
+        var lit;
+        if (vertical){
+          var r = stepDots[i].getBoundingClientRect();
+          lit = r.top + r.height / 2 <= line;
+        } else {
+          lit = line >= startY && p >= i / (n - 1) - 0.001;
+        }
+        s.classList.toggle('lit', lit);
+      });
+    }
+    if (reduceMotion){
+      stepsEl.style.setProperty('--p', '1');
+      stepItems.forEach(function(s){ s.classList.add('lit'); });
+      window.addEventListener('load', function(){ stepsUpdate(); stepsEl.style.setProperty('--p', '1'); stepItems.forEach(function(s){ s.classList.add('lit'); }); });
+    } else {
+      var queueSteps = function(){ if (!stepsTicking){ stepsTicking = true; requestAnimationFrame(stepsUpdate); } };
+      window.addEventListener('scroll', queueSteps, {passive:true});
+      window.addEventListener('resize', queueSteps);
+      window.addEventListener('load', queueSteps);
+      queueSteps();
+    }
   }
 
   /* ---- count-up stats ---- */
@@ -1493,6 +1635,67 @@
     var text = "Hello, I'd like to book a medical.\nName: " + name + "\nPhone: " + phone + "\n" + msg;
     window.open('https://wa.me/447707612400?text=' + encodeURIComponent(text), '_blank', 'noopener');
   });
+})();
+</script>
+
+<script>
+/* Touch-first motion: phones can't hover, so effects follow the scroll and the tap instead. */
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = window.matchMedia('(hover: none)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  /* tap ripple on buttons, FAQ questions and contact cards */
+  if (touch){
+    document.addEventListener('pointerdown', function(e){
+      if (e.pointerType === 'mouse') return;
+      var host = e.target.closest('.btn, .faq-q, .car-btn, .contact-card');
+      if (!host) return;
+      var r = host.getBoundingClientRect();
+      var dot = document.createElement('span');
+      dot.className = 'ripple';
+      dot.style.left = (e.clientX - r.left) + 'px';
+      dot.style.top = (e.clientY - r.top) + 'px';
+      host.appendChild(dot);
+      setTimeout(function(){ dot.remove(); }, 650);
+    }, {passive:true});
+  }
+  if (!touch) return;
+
+  /* spotlight: whichever card crosses the middle band of the screen is "on" */
+  var spot = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ en.target.classList.toggle('on', en.isIntersecting); });
+  }, {rootMargin:'-40% 0px -40% 0px', threshold:0});
+  document.querySelectorAll('.svc, .loc, .apoint, .contact-card, .form-chip').forEach(function(el){ spot.observe(el); });
+
+  /* sheen across each primary button the first time it arrives */
+  var shine = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var b = en.target;
+      setTimeout(function(){ b.classList.add('shine'); }, 200);
+      shine.unobserve(b);
+    });
+  }, {threshold:.9});
+  document.querySelectorAll('.btn-primary').forEach(function(b){ shine.observe(b); });
+
+  /* photos: settle from 1.10x to 1x as they travel up the screen */
+  var photos = Array.prototype.slice.call(document.querySelectorAll('.photo img'));
+  var ticking = false;
+  function zoom(){
+    ticking = false;
+    var vh = window.innerHeight;
+    photos.forEach(function(img){
+      var r = img.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      var p = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
+      img.style.setProperty('--zoom', (1.1 - 0.1 * Math.min(1, p * 1.6)).toFixed(4));
+    });
+  }
+  window.addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(zoom); } }, {passive:true});
+  window.addEventListener('load', zoom);
+  zoom();
 })();
 </script>
 <script>
