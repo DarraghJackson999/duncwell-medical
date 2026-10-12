@@ -3,15 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="HGV, taxi and bus driver medicals in Omagh and Enniskillen. £100 flat fee, eyesight exam included, all paperwork completed on the day. Book on 07707 612 400.">
+<title>Duncwell Medical | HGV, Taxi &amp; Bus Medicals in Omagh, Enniskillen &amp; Derry</title>
+<meta name="description" content="HGV, taxi and bus driver medicals in Omagh, Enniskillen and Derry/Londonderry. D4 and DLM1 forms, £100 flat fee, eyesight exam included, all paperwork completed on the day. Book on 07707 612 400.">
+<link rel="canonical" href="https://duncwellmedical.com/">
 <meta name="theme-color" content="#FFFFFF">
-<meta property="og:title" content="Duncwell Medical — Driver Medicals in Omagh & Enniskillen">
-<meta property="og:description" content="HGV, taxi and bus medicals completed in one visit. £100, eyesight exam included, all paperwork done on the day.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.duncwellmedical.com/">
-</head>
-<body>
-<title>Duncwell Medical</title>
+<meta property="og:site_name" content="Duncwell Medical">
+<meta property="og:title" content="Duncwell Medical | Driver Medicals in Omagh, Enniskillen &amp; Derry">
+<meta property="og:description" content="HGV, taxi and bus medicals completed in one visit. £100, eyesight exam included, all paperwork done on the day.">
+<meta property="og:url" content="https://duncwellmedical.com/">
+<meta property="og:image" content="https://duncwellmedical.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img/hero-600.webp" imagesrcset="img/hero-600.webp 600w, img/hero-960.webp 960w" imagesizes="(max-width:880px) 92vw, 460px" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   /* ================= TOKENS ================= */
@@ -169,7 +179,8 @@
     transition:color .2s, background .2s;
   }
   .nav a:hover{color:var(--ink);background:var(--tint)}
-  .hdr-cta{display:flex;align-items:center;gap:12px;margin-left:6px}
+  .hdr-cta{display:flex;align-items:center;gap:12px;margin-left:6px;flex:none}
+  .hdr-cta .btn{white-space:nowrap}
   .hdr-phone{
     text-decoration:none;font-family:"IBM Plex Mono",monospace;
     font-size:.86rem;font-weight:500;color:var(--ink);white-space:nowrap;
@@ -336,6 +347,15 @@
     color:var(--accent);
   }
   .ph .ph-desc{font-size:.84rem;line-height:1.55;max-width:26em}
+
+  /* photographs */
+  .photo{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--tint);max-width:100%}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .contact .photo{aspect-ratio:16/9;background:var(--band-2)}
+  @media (max-width:880px){
+    .hero-media .photo{aspect-ratio:4/3}
+    .about-grid .photo{max-width:440px}
+  }
 
   /* ================= ECG DIVIDER ================= */
   .ecg{
@@ -664,6 +684,8 @@
   }
   .loc .maplink .arr{transition:transform .25s}
   .loc .maplink:hover .arr{transform:translateX(4px)}
+  .loc-actions{margin-top:auto;padding-top:6px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+  .loc .loc-actions .maplink{margin-top:0;padding-top:0}
   @media (max-width:880px){.loc-grid{grid-template-columns:1fr}}
 
   /* Contact — navy band */
@@ -745,7 +767,6 @@
     body{padding-bottom:76px}
   }
 </style>
-
 <script>
   /* Apply theme before first paint. The site opens in light mode by default;
      the toggle saves each visitor's own choice. */
@@ -759,6 +780,9 @@
     document.documentElement.classList.toggle('is-dark', t === 'dark');
   })();
 </script>
+</head>
+<body>
+
 
 <div class="grain" aria-hidden="true"></div>
 <div class="progress" aria-hidden="true"></div>
@@ -801,6 +825,7 @@
   <div class="mm-ctas">
     <a class="btn btn-primary" href="https://duncwellmedicals.simplybook.it/" target="_blank" rel="noopener">Book in Omagh</a>
     <a class="btn btn-outline" href="https://duncwellmedical.simplybook.it/v2/" target="_blank" rel="noopener">Book in Enniskillen</a>
+    <a class="btn btn-outline" href="https://duncwellmedicalderry.simplybook.it/" target="_blank" rel="noopener">Book in Derry/Londonderry</a>
     <a class="btn btn-outline" href="tel:+447707612400">Call 07707 612 400</a>
   </div>
 </nav>
@@ -811,34 +836,36 @@
   <section class="hero" id="book">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Omagh &amp; Enniskillen · DVA / DVLA Driver Medicals</p>
+        <p class="eyebrow">Omagh · Enniskillen · Derry/Londonderry</p>
         <h1>
           <span class="hline"><span>Your driver medical,</span></span>
-          <span class="hline"><span>completed <em>properly</em>,</span></span>
+          <span class="hline"><span>completed <em>efficiently</em>,</span></span>
           <span class="hline"><span>in one visit.</span></span>
         </h1>
         <p class="hero-sub">
-          Face-to-face HGV, taxi and bus medicals across Fermanagh and Tyrone, carried out by an
+          Face-to-face HGV, taxi and bus medicals across Tyrone, Fermanagh and Derry, carried out by an
           experienced local GP. <strong>£100 flat fee</strong>, eyesight examination included, and
           <strong>all paperwork completed on the day</strong> — no separate trips to a doctor or optician.
         </p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://duncwellmedicals.simplybook.it/" target="_blank" rel="noopener">Book in Omagh <span class="arr">→</span></a>
           <a class="btn btn-outline" href="https://duncwellmedical.simplybook.it/v2/" target="_blank" rel="noopener">Book in Enniskillen</a>
+          <a class="btn btn-outline" href="https://duncwellmedicalderry.simplybook.it/" target="_blank" rel="noopener">Book in Derry/Londonderry</a>
         </div>
         <p class="hero-call">Or call / text to book — <a href="tel:+447707612400">07707 612 400</a></p>
         <div class="hero-facts">
           <span>GP with 15 years' experience</span>
-          <span>Evening appointments</span>
+          <span>Evening &amp; weekend appointments</span>
           <span>Usually seen within 7 days</span>
           <span>Cash or card</span>
         </div>
       </div>
       <div class="hero-media" data-parallax>
-        <div class="ph" role="img" aria-label="Image placeholder: Dr Motherwell greeting a driver outside the clinic">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M9 6l1.2-2h3.6L15 6"/></svg>
-          <span class="ph-tag">Image 1 · Hero</span>
-          <span class="ph-desc">Recommended: Dr Motherwell in smart clinic wear greeting a driver beside an HGV cab or at the clinic entrance. Natural daylight, portrait 4:5, at least 1200×1500px. A muted colour grade will suit this design best.</span>
+        <div class="photo">
+          <picture>
+            <source type="image/webp" srcset="img/hero-600.webp 600w, img/hero-960.webp 960w" sizes="(max-width:880px) 92vw, 460px">
+            <img src="img/hero-960.jpg" alt="A lorry on a quiet country road at dawn" width="960" height="1200" fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
     </div>
@@ -859,13 +886,13 @@
         <p class="eyebrow">Our medicals</p>
         <h2>One appointment. Everything the licence needs.</h2>
         <p class="lede">We look after HGV drivers, taxi and bus drivers, farmers, and all Group&nbsp;2 /
-        Class&nbsp;1 &amp; 2 licence holders across Fermanagh, Tyrone and the surrounding areas.</p>
+        Class&nbsp;1 &amp; 2 licence holders across Tyrone, Fermanagh, Derry and the surrounding areas.</p>
       </div>
       <div class="svc-grid">
         <article class="svc rv">
           <div class="svc-top">
             <div>
-              <span class="svc-kicker">D4 · Group 2</span>
+              <span class="svc-kicker">D4 / DLM1 · Group 2</span>
               <h3>HGV Medical Examination</h3>
             </div>
             <div class="price"><span class="amt">£100</span><span class="lbl">Cash / Card</span></div>
@@ -874,7 +901,7 @@
           efficient and fully compliant with DVA / DVLA requirements, so you can get back on the road
           without delay.</p>
           <ul>
-            <li>Full D4 examination with an experienced GP</li>
+            <li>Full D4 / DLM1 examination with an experienced GP</li>
             <li>Eyesight examination on site — no separate optician visit</li>
             <li>All forms supplied and completed during the appointment</li>
             <li>Medical history obtained beforehand with your consent</li>
@@ -882,6 +909,7 @@
           <div class="svc-cta">
             <a class="btn btn-dark btn-sm" href="https://duncwellmedicals.simplybook.it/" target="_blank" rel="noopener">Book Omagh</a>
             <a class="btn btn-outline btn-sm" href="https://duncwellmedical.simplybook.it/v2/" target="_blank" rel="noopener">Book Enniskillen</a>
+            <a class="btn btn-outline btn-sm" href="https://duncwellmedicalderry.simplybook.it/" target="_blank" rel="noopener">Book Derry/Londonderry</a>
           </div>
         </article>
         <article class="svc rv" style="--d:.12s">
@@ -903,6 +931,7 @@
           <div class="svc-cta">
             <a class="btn btn-dark btn-sm" href="https://duncwellmedicals.simplybook.it/" target="_blank" rel="noopener">Book Omagh</a>
             <a class="btn btn-outline btn-sm" href="https://duncwellmedical.simplybook.it/v2/" target="_blank" rel="noopener">Book Enniskillen</a>
+            <a class="btn btn-outline btn-sm" href="https://duncwellmedicalderry.simplybook.it/" target="_blank" rel="noopener">Book Derry/Londonderry</a>
           </div>
         </article>
       </div>
@@ -922,7 +951,7 @@
           <div class="step-no">1</div>
           <h4>Book your slot</h4>
           <p>Book online or call 07707&nbsp;612&nbsp;400. Appointments are available every week, with
-          evening times to suit working drivers.</p>
+          evening and weekend times to suit working drivers.</p>
         </div>
         <div class="step rv" style="--d:.1s">
           <div class="step-no">2</div>
@@ -933,7 +962,7 @@
         <div class="step rv" style="--d:.2s">
           <div class="step-no">3</div>
           <h4>Your examination</h4>
-          <p>The medical takes around 15–20 minutes at our Omagh or Enniskillen clinic, including
+          <p>The medical takes around 15–20 minutes at our Omagh, Enniskillen or Derry/Londonderry clinic, including
           your eyesight examination.</p>
         </div>
         <div class="step rv" style="--d:.3s">
@@ -964,7 +993,7 @@
         </div>
         <div class="stat rv" style="--d:.24s">
           <div class="num"><span data-count="3">0</span><span class="unit">&nbsp;clinics</span></div>
-          <p class="cap">Central Omagh &amp; Enniskillen locations, free parking</p>
+          <p class="cap">Omagh, Enniskillen and Derry/Londonderry</p>
         </div>
       </div>
     </div>
@@ -974,28 +1003,29 @@
   <section id="doctor" class="below-fold">
     <div class="wrap about-grid">
       <div class="rv" data-parallax>
-        <div class="ph" role="img" aria-label="Image placeholder: portrait of Dr Duncan Motherwell">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M9 6l1.2-2h3.6L15 6"/></svg>
-          <span class="ph-tag">Image 2 · Portrait</span>
-          <span class="ph-desc">Recommended: professional portrait of Dr Motherwell in the consultation
-          room — approachable, plain background, soft window light. Portrait 4:5, at least 1000×1250px.</span>
+        <!-- Replace with a photo of Dr Motherwell when available (portrait 4:5, at least 1000x1250px) -->
+        <div class="photo">
+          <picture>
+            <source type="image/webp" srcset="img/room-700.webp 700w, img/room-1200.webp 1200w" sizes="(max-width:880px) 92vw, 440px">
+            <img src="img/room-1200.jpg" alt="A calm GP consulting room with an examination couch" width="1200" height="1516" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
       <div>
         <div class="sec-head rv">
           <p class="eyebrow">Your examiner</p>
           <h2>Dr Duncan Motherwell</h2>
-          <p class="lede">A GP with 15 years of experience serving the Omagh area, providing a
-          personal, local service to County Tyrone and Fermanagh. Every medical and every piece of
+          <p class="lede">A GMC-registered GP with 15 years of experience, based in Omagh and providing a
+          personal, local service to drivers across Tyrone, Fermanagh and Derry. Every medical and every piece of
           paperwork is handled to the highest standard by the examining physician himself.</p>
         </div>
         <blockquote class="sig-quote rv">Everything is done in one visit — no bouncing between your
         doctor, an optician and a form.</blockquote>
         <div class="about-points">
-          <div class="apoint rv"><span class="t">Available any day of the week</span><span class="d">Including evening appointments to fit around driving shifts.</span></div>
+          <div class="apoint rv"><span class="t">Available any day of the week</span><span class="d">Including evening and weekend appointments to fit around driving shifts.</span></div>
           <div class="apoint rv" style="--d:.08s"><span class="t">Short-notice bookings</span><span class="d">Medicals arranged urgently when your licence can't wait.</span></div>
           <div class="apoint rv" style="--d:.16s"><span class="t">Follow-up at no extra fee</span><span class="d">Any follow-up care arising from your medical is included.</span></div>
-          <div class="apoint rv" style="--d:.24s"><span class="t">Private GP services</span><span class="d">A full range of private GP care is also available — just ask.</span></div>
+          <div class="apoint rv" style="--d:.24s"><span class="t">D4 and DLM1 forms</span><span class="d">Completed for DVLA (GB) and DVA (Northern Ireland) licences.</span></div>
         </div>
       </div>
     </div>
@@ -1004,8 +1034,8 @@
   <!-- ================= MARQUEE (navy band) ================= -->
   <div class="marquee below-fold" aria-hidden="true">
     <div class="marquee-track">
-      <span>HGV Class 1</span><span>HGV Class 2</span><span>Taxi Drivers</span><span>Bus Drivers</span><span>Group 2 Licences</span><span>Farmers</span><span>D4 Examinations</span><span>Eyesight Checks</span>
-      <span>HGV Class 1</span><span>HGV Class 2</span><span>Taxi Drivers</span><span>Bus Drivers</span><span>Group 2 Licences</span><span>Farmers</span><span>D4 Examinations</span><span>Eyesight Checks</span>
+      <span>HGV Class 1</span><span>HGV Class 2</span><span>Taxi Drivers</span><span>Bus Drivers</span><span>Group 2 Licences</span><span>Farmers</span><span>D4 / DLM1 Medicals</span><span>Eyesight Checks</span>
+      <span>HGV Class 1</span><span>HGV Class 2</span><span>Taxi Drivers</span><span>Bus Drivers</span><span>Group 2 Licences</span><span>Farmers</span><span>D4 / DLM1 Medicals</span><span>Eyesight Checks</span>
     </div>
   </div>
 
@@ -1014,7 +1044,7 @@
     <div class="wrap">
       <div class="sec-head rv" style="max-width:none;text-align:center;margin-inline:auto">
         <p class="eyebrow" style="justify-content:center">What drivers say</p>
-        <h2>Trusted across Tyrone &amp; Fermanagh</h2>
+        <h2>Trusted across Tyrone, Fermanagh &amp; Derry</h2>
       </div>
       <div class="carousel rv" id="carousel">
         <div class="car-stage" id="carStage">
@@ -1068,6 +1098,12 @@
           consent — we handle the rest.</p></div></div>
         </div>
         <div class="faq">
+          <button class="faq-q" aria-expanded="false">Which form do you complete — D4 or DLM1?<span class="ind" aria-hidden="true"></span></button>
+          <div class="faq-a"><div><p>Both. The DLM1 is for licences issued in Northern Ireland by the
+          DVA, and the D4 is for licences issued in Great Britain by the DVLA. Just tell us which
+          licence you hold when you book.</p></div></div>
+        </div>
+        <div class="faq">
           <button class="faq-q" aria-expanded="false">How much does a medical cost?<span class="ind" aria-hidden="true"></span></button>
           <div class="faq-a"><div><p>All driver medicals are a flat £100, payable by cash or card on
           the day. The eyesight examination is included — there's no separate optician fee.</p></div></div>
@@ -1097,7 +1133,7 @@
     <div class="wrap">
       <div class="sec-head rv">
         <p class="eyebrow">Where to find us</p>
-        <h2>Three central clinics with free parking</h2>
+        <h2>Clinics in Omagh, Enniskillen and Derry/Londonderry</h2>
       </div>
       <div class="loc-grid">
         <article class="loc rv">
@@ -1112,7 +1148,10 @@
             <span class="town">Enniskillen</span>
             <h3>Fermanagh House</h3>
             <address>Broadmeadow Place, Enniskillen<br><span class="postcode">BT74 7HR</span></address>
-            <a class="maplink" href="https://maps.google.com/?q=Fermanagh+House,+Broadmeadow+Place,+Enniskillen+BT74+7HR" target="_blank" rel="noopener">Get directions <span class="arr">→</span></a>
+            <div class="loc-actions">
+              <a class="btn btn-primary btn-sm" href="https://duncwellmedical.simplybook.it/v2/" target="_blank" rel="noopener">Book in Enniskillen</a>
+              <a class="maplink" href="https://maps.google.com/?q=Fermanagh+House,+Broadmeadow+Place,+Enniskillen+BT74+7HR" target="_blank" rel="noopener">Get directions <span class="arr">→</span></a>
+            </div>
           </div>
         </article>
         <article class="loc rv" style="--d:.1s">
@@ -1127,7 +1166,10 @@
             <span class="town">Omagh</span>
             <h3>Omagh Hospital &amp; Primary Care Complex</h3>
             <address>7 Donaghanie Road, Omagh<br><span class="postcode">BT79 0NR</span></address>
-            <a class="maplink" href="https://maps.google.com/?q=Omagh+Hospital+and+Primary+Care+Complex,+7+Donaghanie+Road,+Omagh+BT79+0NR" target="_blank" rel="noopener">Get directions <span class="arr">→</span></a>
+            <div class="loc-actions">
+              <a class="btn btn-primary btn-sm" href="https://duncwellmedicals.simplybook.it/" target="_blank" rel="noopener">Book in Omagh</a>
+              <a class="maplink" href="https://maps.google.com/?q=Omagh+Hospital+and+Primary+Care+Complex,+7+Donaghanie+Road,+Omagh+BT79+0NR" target="_blank" rel="noopener">Get directions <span class="arr">→</span></a>
+            </div>
           </div>
         </article>
         <article class="loc rv" style="--d:.2s">
@@ -1136,13 +1178,16 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
               <span>Map preview</span>
             </div>
-            <iframe src="https://maps.google.com/maps?q=Southwest%20College%20Omagh%20Campus%2C%202%20Mountjoy%20Road%2C%20Omagh%20BT79%207AH&z=15&output=embed" loading="lazy" title="Map: Southwest College, Omagh Campus" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://maps.google.com/maps?q=1%20Hyde%20Business%20Park%2C%20Pennyburn%20Industrial%20Estate%2C%20Derry%20BT48%200LU&z=15&output=embed" loading="lazy" title="Map: Health Hub Professionals NI, Derry/Londonderry" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="loc-body">
-            <span class="town">Omagh</span>
-            <h3>Southwest College, Omagh Campus</h3>
-            <address>2 Mountjoy Road, Omagh<br><span class="postcode">BT79 7AH</span></address>
-            <a class="maplink" href="https://maps.google.com/?q=Southwest+College+Omagh+Campus,+2+Mountjoy+Road,+Omagh+BT79+7AH" target="_blank" rel="noopener">Get directions <span class="arr">→</span></a>
+            <span class="town">Derry/Londonderry</span>
+            <h3>Health Hub Professionals NI</h3>
+            <address>1 Hyde Business Park, Pennyburn Industrial Estate, Derry/Londonderry<br><span class="postcode">BT48 0LU</span></address>
+            <div class="loc-actions">
+              <a class="btn btn-primary btn-sm" href="https://duncwellmedicalderry.simplybook.it/" target="_blank" rel="noopener">Book in Derry/Londonderry</a>
+              <a class="maplink" href="https://maps.google.com/?q=1+Hyde+Business+Park,+Pennyburn+Industrial+Estate,+Derry+BT48+0LU" target="_blank" rel="noopener">Get directions <span class="arr">→</span></a>
+            </div>
           </div>
         </article>
       </div>
@@ -1170,7 +1215,7 @@
           </div>
           <div class="field">
             <label for="f-msg">Message</label>
-            <textarea id="f-msg" name="message" rows="4" placeholder="e.g. HGV renewal, preferred days/times, Omagh or Enniskillen" required></textarea>
+            <textarea id="f-msg" name="message" rows="4" placeholder="e.g. HGV renewal, preferred days/times, Omagh, Enniskillen or Derry/Londonderry" required></textarea>
           </div>
           <button class="btn btn-primary" type="submit">Send via WhatsApp <span class="arr">→</span></button>
           <p class="form-note">Sending opens WhatsApp with your message ready to go — nothing is stored
@@ -1208,11 +1253,11 @@
             <p class="d">On Instagram and Facebook.</p>
           </div>
         </div>
-        <div class="ph" role="img" aria-label="Image placeholder: clinic exterior" style="aspect-ratio:16/9">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M9 6l1.2-2h3.6L15 6"/></svg>
-          <span class="ph-tag">Image 3 · Clinic</span>
-          <span class="ph-desc">Recommended: exterior of Fermanagh House or the Omagh clinic entrance
-          with signage visible. Landscape 16:9, at least 1600×900px.</span>
+        <div class="photo">
+          <picture>
+            <source type="image/webp" srcset="img/desk-700.webp 700w, img/desk-1200.webp 1200w" sizes="(max-width:880px) 92vw, 520px">
+            <img src="img/desk-1200.jpg" alt="A stethoscope and a medical form on a desk" width="1200" height="676" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </div>
@@ -1223,7 +1268,7 @@
   <div class="wrap">
     <div>
       <p class="fbrand">Duncwell Medical Limited</p>
-      <p>Driver medicals across Fermanagh &amp; Tyrone · © 2024–2026</p>
+      <p>Driver medicals in Omagh, Enniskillen &amp; Derry/Londonderry · © 2024–2026</p>
     </div>
     <nav aria-label="Footer">
       <a href="#services">Medicals</a>
@@ -1237,7 +1282,7 @@
 <div class="actionbar" id="actionbar">
   <a class="btn btn-outline" href="tel:+447707612400">Call</a>
   <a class="btn btn-outline" href="https://wa.me/447707612400" target="_blank" rel="noopener">WhatsApp</a>
-  <a class="btn btn-primary" href="https://duncwellmedicals.simplybook.it/" target="_blank" rel="noopener">Book now</a>
+  <a class="btn btn-primary" href="#locations">Book now</a>
 </div>
 
 <script type="application/ld+json">
@@ -1245,14 +1290,15 @@
   "@context":"https://schema.org",
   "@type":"MedicalClinic",
   "name":"Duncwell Medical Limited",
-  "description":"HGV, taxi and bus driver medicals in Omagh and Enniskillen, Northern Ireland. £100 flat fee, eyesight examination included, all paperwork completed on the day.",
+  "description":"HGV, taxi and bus driver medicals in Omagh, Enniskillen and Derry/Londonderry, Northern Ireland. D4 and DLM1 forms. £100 flat fee, eyesight examination included, all paperwork completed on the day.",
   "telephone":"+447707612400",
   "priceRange":"£100",
-  "url":"https://www.duncwellmedical.com/",
+  "url":"https://duncwellmedical.com/",
+  "image":"https://duncwellmedical.com/og-image.jpg",
   "address":[
     {"@type":"PostalAddress","streetAddress":"Fermanagh House, Broadmeadow Place","addressLocality":"Enniskillen","postalCode":"BT74 7HR","addressCountry":"GB"},
     {"@type":"PostalAddress","streetAddress":"Omagh Hospital and Primary Care Complex, 7 Donaghanie Road","addressLocality":"Omagh","postalCode":"BT79 0NR","addressCountry":"GB"},
-    {"@type":"PostalAddress","streetAddress":"Southwest College Omagh Campus, 2 Mountjoy Road","addressLocality":"Omagh","postalCode":"BT79 7AH","addressCountry":"GB"}
+    {"@type":"PostalAddress","streetAddress":"Health Hub Professionals NI Ltd, 1 Hyde Business Park, Pennyburn Industrial Estate","addressLocality":"Derry/Londonderry","postalCode":"BT48 0LU","addressCountry":"GB"}
   ]
 }
 </script>
@@ -1447,6 +1493,25 @@
     var text = "Hello, I'd like to book a medical.\nName: " + name + "\nPhone: " + phone + "\n" + msg;
     window.open('https://wa.me/447707612400?text=' + encodeURIComponent(text), '_blank', 'noopener');
   });
+})();
+</script>
+<script>
+(function(){
+  if (!location.hash) return;
+  var id = decodeURIComponent(location.hash.slice(1));
+  var touched = false;
+  ['wheel','touchstart','keydown','mousedown'].forEach(function(t){
+    window.addEventListener(t, function(){ touched = true; }, {passive:true, once:true});
+  });
+  function go(){
+    var el = document.getElementById(id);
+    if (!el || touched) return;
+    var root = document.documentElement, prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';   // the page sets smooth scrolling; this jump must be instant
+    el.scrollIntoView({block:'start'});
+    root.style.scrollBehavior = prev;
+  }
+  window.addEventListener('load', function(){ go(); setTimeout(go, 350); setTimeout(go, 900); });
 })();
 </script>
 </body>
