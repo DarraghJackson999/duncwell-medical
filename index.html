@@ -158,8 +158,10 @@
 
   /* Brand — the real Duncwell logo, embedded. Black-text version for light
      theme, white-text version for the navy theme. */
-  .brand{display:flex;align-items:center;text-decoration:none;white-space:nowrap}
-  .brand img{height:36px;width:auto;display:block}
+  .brand{display:flex;align-items:center;text-decoration:none;white-space:nowrap;flex:none}
+  .brand img{height:36px;width:auto;max-width:none;display:block}
+  /* between the burger breakpoint and wide screens, tighten the menu so the logo never has to give way */
+  @media (max-width:1240px){.header .wrap{gap:16px}.nav a{padding:8px 9px}.hdr-phone{display:none}}
   .brand .logo-dark{display:none}
   html.is-dark .brand .logo-light{display:none}
   html.is-dark .brand .logo-dark{display:block}
