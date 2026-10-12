@@ -132,14 +132,6 @@
 
   .wrap{max-width:1140px;margin-inline:auto;padding-inline:clamp(20px,5vw,44px)}
 
-  .eyebrow{
-    font-family:"IBM Plex Mono",ui-monospace,monospace;
-    font-size:.76rem;font-weight:500;
-    letter-spacing:.18em;text-transform:uppercase;
-    color:var(--muted);
-    display:flex;align-items:center;gap:.75em;
-  }
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);flex:none}
 
   .grain{
     position:fixed;inset:0;z-index:200;pointer-events:none;
@@ -277,7 +269,7 @@
   }
   .hero h1{
     font-size:clamp(2.6rem,5.6vw,4.3rem);
-    margin:22px 0 24px;
+    margin:0 0 24px;
   }
   .hero h1 em{font-style:italic;font-weight:500;color:var(--accent)}
   .hline{display:block;overflow:hidden}
@@ -286,8 +278,7 @@
   .loaded .hline:nth-child(2) > span{animation-delay:.12s}
   .loaded .hline:nth-child(3) > span{animation-delay:.24s}
   @keyframes lineUp{to{transform:none}}
-  .hero-sub,.forms,.hero-ctas,.hero-call,.hero-facts{opacity:0;transform:translateY(16px)}
-  .loaded .forms{animation:fadeUp .8s .52s cubic-bezier(.2,.65,.25,1) forwards}
+  .hero-sub,.hero-ctas,.hero-call,.hero-facts{opacity:0;transform:translateY(16px)}
   .loaded .hero-sub{animation:fadeUp .8s .45s cubic-bezier(.2,.65,.25,1) forwards}
   .loaded .hero-ctas{animation:fadeUp .8s .58s cubic-bezier(.2,.65,.25,1) forwards}
   .loaded .hero-call{animation:fadeUp .8s .68s cubic-bezier(.2,.65,.25,1) forwards}
@@ -296,31 +287,14 @@
   .loaded .hero-media{animation:fadeUp 1s .5s cubic-bezier(.2,.65,.25,1) forwards}
   @keyframes fadeUp{to{opacity:1;transform:none}}
   @media (prefers-reduced-motion: reduce){
-    .hline > span,.hero-sub,.forms,.hero-ctas,.hero-call,.hero-facts,.hero-media{
+    .hline > span,.hero-sub,.hero-ctas,.hero-call,.hero-facts,.hero-media{
       transform:none!important;opacity:1!important;animation:none!important;
     }
   }
   .hero-sub{
     font-size:1.13rem;color:var(--ink-soft);
-    max-width:33em;margin-bottom:24px;
+    max-width:33em;margin-bottom:34px;
   }
-  .forms{margin-bottom:30px}
-  .forms-label{
-    font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;
-    letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;
-  }
-  .forms-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:520px}
-  .form-chip{
-    display:flex;align-items:center;gap:12px;min-width:0;
-    padding:12px 14px;border:1px solid var(--line-strong);border-radius:12px;background:var(--bg);
-  }
-  .form-chip .code{
-    flex:none;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:1.15rem;line-height:1.1;
-    color:var(--accent);padding-right:12px;border-right:1px solid var(--line);
-  }
-  .form-chip .what{display:flex;flex-direction:column;min-width:0;line-height:1.3}
-  .form-chip .what b{font-size:.88rem;font-weight:600;color:var(--ink)}
-  .form-chip .what small{font-size:.76rem;color:var(--muted);letter-spacing:.04em}
   .hero-sub strong{color:var(--ink);font-weight:600}
   .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
   .hero-call{color:var(--muted);font-size:.94rem}
@@ -420,7 +394,7 @@
   section{padding-block:clamp(68px,9vw,116px)}
   .below-fold{content-visibility:auto;contain-intrinsic-size:auto 720px}
   .sec-head{max-width:660px;margin-bottom:clamp(38px,5vw,60px)}
-  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-top:18px}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
   .sec-head .lede{color:var(--muted);margin-top:16px;font-size:1.06rem;max-width:36em}
 
   .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.65,.25,1),transform .7s cubic-bezier(.2,.65,.25,1);transition-delay:var(--d,0s)}
@@ -485,7 +459,6 @@
 
   /* Process — navy band */
   .process{background:var(--band);color:var(--on-band);border-block:1px solid var(--band-line)}
-  .process .eyebrow{color:var(--on-band-muted)}
   .process .sec-head h2{color:var(--on-band)}
   /* The rail runs only between the number circles (length set in JS); its fill follows the
      visitor's scroll position, and each circle lights up once the fill reaches it. */
@@ -726,7 +699,6 @@
 
   /* Contact — navy band */
   .contact{background:var(--band);color:var(--on-band)}
-  .contact .eyebrow{color:var(--on-band-muted)}
   .contact .sec-head h2{color:var(--on-band)}
   .contact .sec-head .lede{color:var(--on-band-muted)}
   .contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(38px,5vw,84px)}
@@ -806,9 +778,6 @@
   @media (max-width:480px){.svc .svc-kicker{letter-spacing:.1em}}
 
   /* ================= MOTION FOR EVERY DEVICE ================= */
-  /* section labels: the accent line draws in as the heading arrives */
-  .rv .eyebrow::before{transform:scaleX(0);transform-origin:left;transition:transform .9s .2s cubic-bezier(.2,.65,.25,1)}
-  .rv.in .eyebrow::before{transform:scaleX(1)}
   /* tap ripple (added by script on touch) */
   .ripple{
     position:absolute;border-radius:50%;pointer-events:none;z-index:0;
@@ -824,7 +793,7 @@
   /* ================= TOUCH SCREENS (no hover) ================= */
   @media (hover: none){
     /* press feedback */
-    .btn:active,.form-chip:active,.apoint:active,.contact-card:active,.car-btn:active{transform:scale(.97)}
+    .btn:active,.apoint:active,.contact-card:active,.car-btn:active{transform:scale(.97)}
     .svc:active,.loc:active{transform:scale(.985)}
     .theme-toggle:active{transform:rotate(25deg) scale(.94)}
     .faq-q:active{color:var(--accent)}
@@ -837,8 +806,6 @@
     .apoint.on{border-color:var(--accent);transform:translateY(-2px)}
     .apoint{transition:border-color .45s, transform .45s}
     .contact-card.on{border-color:var(--line-strong)}
-    .form-chip{transition:border-color .45s, transform .2s}
-    .form-chip.on{border-color:var(--accent)}
 
     /* primary buttons sweep a sheen when they first come into view */
     .btn-primary.shine::after{animation:sheen .9s .15s ease-out 1}
@@ -850,7 +817,6 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    .rv .eyebrow::before{transform:none;transition:none}
     .ripple{display:none}
     .btn-primary.shine::after,.hero-ctas .btn-primary .arr{animation:none}
     .photo img{transform:none!important}
@@ -925,24 +891,16 @@
   <section class="hero" id="book">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Omagh · Enniskillen · Derry/Londonderry</p>
         <h1>
           <span class="hline"><span>Your driver medical,</span></span>
           <span class="hline"><span>completed <em>efficiently</em>,</span></span>
           <span class="hline"><span>in one visit.</span></span>
         </h1>
         <p class="hero-sub">
-          Face-to-face HGV, taxi and bus medicals across Tyrone, Fermanagh and Derry, carried out by an
-          experienced local GP. <strong>£100 flat fee</strong>, eyesight examination included, and
-          <strong>all paperwork completed on the day</strong> — no separate trips to a doctor or optician.
+          Face-to-face HGV, taxi and bus medicals with an experienced local GP in Omagh, Enniskillen
+          and Derry/Londonderry. <strong>D4 and DLM1 forms</strong> completed and signed on the day,
+          eyesight examination included, for a <strong>£100 flat fee</strong>.
         </p>
-        <div class="forms" role="group" aria-label="Medical forms we complete">
-          <p class="forms-label">We complete both medical forms</p>
-          <div class="forms-row">
-            <div class="form-chip"><span class="code">D4</span><span class="what"><b>Great Britain licence</b><small>DVLA</small></span></div>
-            <div class="form-chip"><span class="code">DLM1</span><span class="what"><b>Northern Ireland licence</b><small>DVA</small></span></div>
-          </div>
-        </div>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://duncwellmedicals.simplybook.it/" target="_blank" rel="noopener">Book in Omagh <span class="arr">→</span></a>
           <a class="btn btn-outline" href="https://duncwellmedical.simplybook.it/v2/" target="_blank" rel="noopener">Book in Enniskillen</a>
@@ -979,7 +937,6 @@
   <section id="services" class="below-fold">
     <div class="wrap">
       <div class="sec-head rv">
-        <p class="eyebrow">Our medicals</p>
         <h2>One appointment. Everything the licence needs.</h2>
         <p class="lede">We look after HGV drivers, taxi and bus drivers, farmers, and all Group&nbsp;2 /
         Class&nbsp;1 &amp; 2 licence holders across Tyrone, Fermanagh, Derry and the surrounding areas.</p>
@@ -1039,7 +996,6 @@
   <section class="process below-fold" id="process">
     <div class="wrap">
       <div class="sec-head rv">
-        <p class="eyebrow">How it works</p>
         <h2>From booking to paperwork in four steps</h2>
       </div>
       <div class="steps" id="steps">
@@ -1118,7 +1074,6 @@
       </div>
       <div>
         <div class="sec-head rv">
-          <p class="eyebrow">Your examiner</p>
           <h2>Dr Duncan Motherwell</h2>
           <p class="lede">A GMC-registered GP with 15 years of experience, based in Omagh and providing a
           personal, local service to drivers across Tyrone, Fermanagh and Derry. Every medical and every piece of
@@ -1148,7 +1103,6 @@
   <section class="quotes below-fold" id="reviews">
     <div class="wrap">
       <div class="sec-head rv" style="max-width:none;text-align:center;margin-inline:auto">
-        <p class="eyebrow" style="justify-content:center">What drivers say</p>
         <h2>Trusted across Tyrone, Fermanagh &amp; Derry</h2>
       </div>
       <div class="carousel rv" id="carousel">
@@ -1190,7 +1144,6 @@
   <section id="faq" class="below-fold">
     <div class="wrap faq-wrap">
       <div class="sec-head rv">
-        <p class="eyebrow">Common questions</p>
         <h2>Before your medical</h2>
         <p class="lede">Can't find your answer? Call or WhatsApp us on
         <a href="tel:+447707612400" style="color:var(--accent);font-weight:600;text-decoration:none">07707 612 400</a>.</p>
@@ -1237,7 +1190,6 @@
   <section id="locations" class="locations below-fold">
     <div class="wrap">
       <div class="sec-head rv">
-        <p class="eyebrow">Where to find us</p>
         <h2>Clinics in Omagh, Enniskillen and Derry/Londonderry</h2>
       </div>
       <div class="loc-grid">
@@ -1304,7 +1256,6 @@
     <div class="wrap contact-grid">
       <div>
         <div class="sec-head rv" style="margin-bottom:30px">
-          <p class="eyebrow">Get in touch</p>
           <h2>Book your medical today</h2>
           <p class="lede">Send us a message and we'll come back with the next available appointment —
           or skip the form and call or WhatsApp directly.</p>
@@ -1667,7 +1618,7 @@
   var spot = new IntersectionObserver(function(entries){
     entries.forEach(function(en){ en.target.classList.toggle('on', en.isIntersecting); });
   }, {rootMargin:'-40% 0px -40% 0px', threshold:0});
-  document.querySelectorAll('.svc, .loc, .apoint, .contact-card, .form-chip').forEach(function(el){ spot.observe(el); });
+  document.querySelectorAll('.svc, .loc, .apoint, .contact-card').forEach(function(el){ spot.observe(el); });
 
   /* sheen across each primary button the first time it arrives */
   var shine = new IntersectionObserver(function(entries){
